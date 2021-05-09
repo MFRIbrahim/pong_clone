@@ -1,14 +1,10 @@
-use bevy::{
-    prelude::*,
-    render::pass::ClearColor,
-    window::WindowResizeConstraints,
-};
+use bevy::{prelude::*, render::pass::ClearColor, window::WindowResizeConstraints};
 
-use physics::*;
 use components::*;
+use physics::*;
 
-mod physics;
 mod components;
+mod physics;
 
 const WINDOW_WIDTH: f32 = 1280.0;
 const WINDOW_HEIGHT: f32 = 720.0;
@@ -30,7 +26,7 @@ fn main() {
         .insert_resource(ClearColor(Color::rgb(0.04, 0.04, 0.04)))
         .insert_resource(Scoreboard {
             score_left: 0,
-            score_right: 0, 
+            score_right: 0,
         })
         .add_startup_system(setup.system())
         .add_system(paddle_left_movement.system())
@@ -100,16 +96,14 @@ fn setup(
                 ..Default::default()
             },
             text: Text {
-                sections: vec![
-                    TextSection {
-                        value: "0".to_string(),
-                        style: TextStyle {
-                            font: asset_server.load("fonts/Cousine-Bold.ttf"),
-                            font_size: 100.0,
-                            color: Color::WHITE,
-                        },
+                sections: vec![TextSection {
+                    value: "0".to_string(),
+                    style: TextStyle {
+                        font: asset_server.load("fonts/Cousine-Bold.ttf"),
+                        font_size: 100.0,
+                        color: Color::WHITE,
                     },
-                ],
+                }],
                 alignment: TextAlignment {
                     vertical: VerticalAlign::Center,
                     horizontal: HorizontalAlign::Center,
@@ -135,16 +129,14 @@ fn setup(
                 ..Default::default()
             },
             text: Text {
-                sections: vec![
-                    TextSection {
-                        value: "0".to_string(),
-                        style: TextStyle {
-                            font: asset_server.load("fonts/Cousine-Bold.ttf"),
-                            font_size: 100.0,
-                            color: Color::WHITE,
-                        },
+                sections: vec![TextSection {
+                    value: "0".to_string(),
+                    style: TextStyle {
+                        font: asset_server.load("fonts/Cousine-Bold.ttf"),
+                        font_size: 100.0,
+                        color: Color::WHITE,
                     },
-                ],
+                }],
                 alignment: TextAlignment {
                     vertical: VerticalAlign::Center,
                     horizontal: HorizontalAlign::Center,

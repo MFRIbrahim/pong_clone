@@ -4,9 +4,8 @@ use bevy::{
 };
 use rand::seq::SliceRandom;
 
-use crate::WINDOW_HEIGHT;
 use crate::components::*;
-
+use crate::WINDOW_HEIGHT;
 
 pub fn paddle_left_movement(
     time: Res<Time>,
@@ -96,9 +95,9 @@ pub fn collision(
                         ball.velocity.y = -ball.velocity.y * 1.1;
                     }
                 }
-                
+
                 if let Collider::ScoreableLeft = *collider {
-                    let ball_options: Vec::<f32> = vec![1.0, -1.0];
+                    let ball_options: Vec<f32> = vec![1.0, -1.0];
                     let choice_x = ball_options.choose(&mut rand::thread_rng()).unwrap();
                     let choice_y = ball_options.choose(&mut rand::thread_rng()).unwrap();
                     scoreboard.score_right += 1;
@@ -115,7 +114,7 @@ pub fn collision(
                         });
                 }
                 if let Collider::ScoreableRight = *collider {
-                    let ball_options: Vec::<f32> = vec![1.0, -1.0];
+                    let ball_options: Vec<f32> = vec![1.0, -1.0];
                     let choice_x = ball_options.choose(&mut rand::thread_rng()).unwrap();
                     let choice_y = ball_options.choose(&mut rand::thread_rng()).unwrap();
                     scoreboard.score_left += 1;
